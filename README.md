@@ -1,2 +1,2 @@
 # stepic
-stepic
+stepic.ru
