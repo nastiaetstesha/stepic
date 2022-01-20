@@ -1,0 +1,19 @@
+#  Необходимо написать программу, реализующую алгоритм написания этой песни - Роскомнадзор запретил букву а. Алгоритм выводит в конце предложения следующую в алфавитном порядке букву, если она встречается в строке текста, а очередную строку отображает уже без этой буквы.
+word = input() + ' запретил букву'
+word = list(word)
+#print(word)
+
+abc_list = []  #[word[i] for i in range(len(word)) if word[i] not in abc_list]
+#alphabet = ['а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+#print(abc_list)
+for i in range(len(word)):
+    if word[i] not in abc_list:
+        abc_list.append(word[i])     
+abc = sorted(abc_list)
+del abc[0:1] 
+#print(abc)
+while len(abc) > 0:
+    print(''.join(word).strip().replace('  ', ' '), abc[0])
+    while abc[0] in word:
+        word.remove(abc[0])
+    del abc[0]
