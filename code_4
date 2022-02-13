@@ -1,0 +1,40 @@
+n = int(input())
+matrix = []
+control_set = set(i + 1 for i in range(n ** 2))
+test = set()
+for i in range(n):
+    l = [int(_) for _ in input().split()]
+    matrix.append(l)
+    test.update(l)
+flag = True
+
+if test != control_set:
+    flag = False
+
+c, s, a, b = 0, 0, 0, 0
+
+for i in range(n):
+    a += matrix[i][i]
+    b += matrix[i][n - i - 1]
+if a != b:
+    flag = False
+    
+    
+for i in range(n):
+    s = 0
+    c = sum(matrix[i])
+    for j in range(n):
+        s += matrix[j][i]
+    if  c != a or s != a:
+        flag = False
+        break
+        
+    
+        
+    
+    
+
+if flag:
+    print('YES')
+else:
+    print('NO')
