@@ -1,0 +1,14 @@
+import turtle as t 
+
+def romb(side):
+  t.forward(side)
+  t.left(60)
+  t.forward(side)
+  t.left(120)
+  t.forward(side)
+  t.left(60)
+  t.forward(side)
+  
+for _ in range(10):
+  romb(100)
+  t.left(155)
