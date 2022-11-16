@@ -1,0 +1,14 @@
+from datetime import datetime, timedelta
+
+pattern = '%d.%m.%Y'
+start = datetime.strptime(input(), pattern)
+end = datetime.strptime(input(), pattern)
+
+while not (start.month + start.day) % 2:
+    start += timedelta(days=1)
+
+while start <= end:
+    week = start.isoweekday()
+    if week in (2,3,5,6,7):
+        print(start.strftime(pattern))
+    start += timedelta(days=3)
