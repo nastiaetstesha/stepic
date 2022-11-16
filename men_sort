@@ -1,0 +1,17 @@
+from datetime import datetime, timedelta
+
+dates = {}
+pattern = '%d.%m.%Y'
+counter = 0
+
+for _ in range(int(input())):
+    *_, birthday = input().split()
+    birthday = datetime.strptime(birthday, pattern)
+    dates[birthday] = dates.get(birthday, 0) + 1
+    if dates[birthday] > counter:
+        counter = dates[birthday]
+        
+frequent_dates = [dt for dt, amount in dates.items() if amount == counter]
+
+for dt in sorted(frequent_dates):
+    print(dt.strftime(pattern))
