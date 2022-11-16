@@ -1,0 +1,15 @@
+from datetime import date, time, datetime
+n = int(input())
+sp = [input().split() for i in range(n)]
+l = []
+for i in sp:
+
+    l.append(datetime.strptime(i[-1], '%d.%m.%Y'))
+
+
+mx = min(l)
+a = l.index(mx)
+if l.count(mx) == 1:
+    print(mx.strftime('%d.%m.%Y'), sp[a][0], sp[a][1])
+else:
+    print(mx.strftime('%d.%m.%Y'), l.count(mx))
