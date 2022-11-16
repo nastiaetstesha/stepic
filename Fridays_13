@@ -1,0 +1,9 @@
+from datetime import date
+
+count = [0, 0, 0, 0, 0, 0, 0]
+
+for years in range(1, 10000):
+    for months in range(1, 13):
+        count[date(years, months, 13).weekday()] += 1
+
+print(*count, sep='\n')
