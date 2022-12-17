@@ -1,0 +1,14 @@
+import json
+
+data = {"<class 'str'>": lambda x: x + '!',
+        "<class 'int'>": lambda x: int(x) + 1,
+        "<class 'bool'>": lambda x: not x,
+        "<class 'list'>": lambda x: x + x,
+        "<class 'dict'>": lambda x: x | {'newkey': None}}
+with open('data.json', 'r', encoding='utf-8') as file:
+    update = []
+    for line in json.load(file):
+        if str(type(line)) in data:
+            update.append(data[str(type(line))](line))
+    with open('updated_data.json', 'w', encoding='utf-8') as up_file:
+        json.dump(update, up_file, indent=3)
