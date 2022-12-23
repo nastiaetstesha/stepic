@@ -1,0 +1,13 @@
+framework = input()
+
+match framework.lower():
+    case 'flask' | 'django' | 'fast-api': 
+        print(f'Python({framework}),Backend-dev')   
+    case 'angular' | 'react' | 'vue': 
+        print(f'JavaScript/TypeScript({framework}),Frontend-dev')
+    case 'flutter' | 'react native':
+        print(f'JavaScript({framework}),Cross-Mobile-dev')        
+    case 'pandas' | 'skit-learn' | 'keras':
+        print(f'Python({framework}),Data-Scientist')
+    case _ :
+        print('модель еще не обучена')
