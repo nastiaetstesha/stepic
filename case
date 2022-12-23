@@ -1,0 +1,10 @@
+command = input()
+
+argument = 'Привет!'
+match command:
+    case "Привет":
+        print(argument)
+    case "Как дела?":
+        print('Все классно!')
+    case _:
+        print('Прости, я еще не знаю таких фраз :(')
