@@ -1,0 +1,14 @@
+from zipfile import ZipFile, ZipInfo
+from datetime import datetime
+
+def about_file(file: ZipInfo):
+    return "\n".join((
+        f"{file.filename.split('/')[-1]}",
+        f"  Дата модификации файла: {datetime(*file.date_time)}",
+        f"  Объем исходного файла: {file.file_size} байт(а)",
+        f"  Объем сжатого файла: {file.compress_size} байт(а)"
+    ))
+
+with ZipFile("workbook.zip", "r") as zip_file:
+    data = [about_file(file) for file in zip_file.infolist() if not file.is_dir()]
+    print(*sorted(data), sep="\n\n")
