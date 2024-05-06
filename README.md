@@ -1,2 +1,2 @@
-# stepic.ru
-stepic.ru
+# stepik.ru
+stepik.ru
